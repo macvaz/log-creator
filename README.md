@@ -31,6 +31,7 @@ For example:
 sbt "run 20 1000" 
 
 will use 20 as feed when creating random number of logs in each log level
+
 will iterate a complete cycle each second
 
 Adjusting both paramters users can easily customize the log creation rate.
