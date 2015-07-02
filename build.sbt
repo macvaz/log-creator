@@ -11,4 +11,4 @@ libraryDependencies ++= Seq(
 	"org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.3"
 )
 
-EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource
+//EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource

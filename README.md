@@ -3,11 +3,28 @@ Testing tool that allows to simulate log creation with configurable rates
 
 
 
-## Instalation
+## Installation
 It's written in Scala so a "modern" JVM is required (7+), scala (only tested with version 2.11.5) and sbt.
 
 1. Clone repo
 2. cd log-creator
-3. sbt
-4. compile
-5. run
+3. sbt compile
+
+## Setup
+You can easily change the log configuration by changing src/main/resources/Log4j.properties
+
+## Run
+
+Default setup (asumes a random feed of 50 and 10 seconds in each iteration)
+sbt run 
+
+Customized setup
+sbt "run feed milliseconds"
+
+For example:
+sbt "run 20 1000" will 
+
+use 20 as feed when creatong random number of logs
+iterate a complete cycle each second
+
+Adjusting both paramters users can easily customize the log creation rate.
