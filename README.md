@@ -18,6 +18,7 @@ You can easily change the log configuration by changing src/main/resources/Log4j
 ### Default setup
 
 Asumes a random feed of 50 and 10 seconds in each iteration
+
 sbt run 
 
 ### Customized setup
