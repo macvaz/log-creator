@@ -15,16 +15,21 @@ You can easily change the log configuration by changing src/main/resources/Log4j
 
 ## Run
 
-Default setup (asumes a random feed of 50 and 10 seconds in each iteration)
+### Default setup
+
+Asumes a random feed of 50 and 10 seconds in each iteration
 sbt run 
 
-Customized setup
+### Customized setup
+Allows user to customize the log creation rate
+
 sbt "run feed milliseconds"
 
 For example:
-sbt "run 20 1000" will 
 
-use 20 as feed when creatong random number of logs
-iterate a complete cycle each second
+sbt "run 20 1000" 
+
+will use 20 as feed when creating random number of logs in each log level
+will iterate a complete cycle each second
 
 Adjusting both paramters users can easily customize the log creation rate.
