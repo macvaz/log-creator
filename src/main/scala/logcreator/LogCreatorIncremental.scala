@@ -12,32 +12,32 @@ object LogCreatorIncremental {
     def apply(n: Integer, duration: Integer, total: Integer) = {
        new LogCreatorIncremental(n, duration, total)
     }
+}
+  
+class LogCreatorIncremental(val numMessages: Integer, val duration: Integer, val total:Integer) extends LogCreator {
+  val logger = LoggerFactory.getLogger(classOf[LogCreatorIncremental])
+  var counter = 1
+
+  def writer(logOp:String => Unit) = {
+    var n = numMessages
+    while (n > 0) {
+      logOp(counter.toString)
+      counter += 1
+      n -= 1
+    }
   }
   
-  class LogCreatorIncremental(val numMessages: Integer, val duration: Integer, val total:Integer) extends LogCreator {
-    val logger = LoggerFactory.getLogger(classOf[LogCreatorIncremental])
-    var counter = 1
-  
-    def writer(logOp:String => Unit) = {
-      var n = numMessages
-      while (n > 0) {
-        logOp(counter.toString)
-        counter += 1
-        n -= 1
-      }
+  while (counter <= total) {
+    val infos = Future {
+      writer(logger.info)
     }
     
-    while (counter <= total) {
-      val infos = Future {
-        writer(logger.info)
-      }
-      
-      val timeAtCompletion = for {
-        _ <- infos
-      } yield Calendar.getInstance.getTime
-      
-      timeAtCompletion.foreach { println(_) }
-      
-      Thread.sleep(duration.toLong)
-    }
+    val timeAtCompletion = for {
+      _ <- infos
+    } yield Calendar.getInstance.getTime
+    
+    timeAtCompletion.foreach { println(_) }
+    
+    Thread.sleep(duration.toLong)
   }
+}
