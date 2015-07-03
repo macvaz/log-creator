@@ -28,10 +28,12 @@ sbt "run feed milliseconds"
 
 For example:
 
-sbt "run 20 1000" 
+sbt "run 20 1000 100000" 
 
 will use 20 as feed when creating random number of logs in each log level
 
 will iterate a complete cycle each second
+
+will iterate until generating 100000 log entries
 
 Adjusting both paramters users can easily customize the log creation rate.
