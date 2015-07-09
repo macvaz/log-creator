@@ -17,7 +17,6 @@ object LogCreatorRandom {
 
 class LogCreatorRandom(val seed: Integer, val duration: Integer) extends LogCreator {
   val logger = LoggerFactory.getLogger(classOf[LogCreatorRandom])
-  val messages = List("MSG1", "MSG2")
 
   def writer(logOp:String => Unit) = {
     var n = Random.nextInt(seed)*10
