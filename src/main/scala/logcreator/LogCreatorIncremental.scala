@@ -20,7 +20,7 @@ class LogCreatorIncremental(val numMessages: Integer, val duration: Integer, val
 
   def writer(logOp:String => Unit) = {
     messages.foreach { msg => 
-      logOp("id=" + counter.toString + "|" + msg)
+      logOp(""""id":""" + counter.toString + ", " + msg)
       counter += 1
     }
   }
